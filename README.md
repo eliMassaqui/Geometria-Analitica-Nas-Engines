@@ -1,33 +1,35 @@
-# 🧠 Geometria Analítica para Engines e Jogos Imersivos
+# 🧠 Geometria Analítica Aplicada a Engines e Jogos Imersivos
 
-> **Transforme fórmulas matemáticas em mundos vivos.**
+> **Matemática de precisão, mundos de impacto.**
 
-Este repositório conecta a precisão da **Geometria Analítica** à liberdade criativa do **desenvolvimento de jogos em Unity**.
-Aqui, vetores, planos e quaternions deixam de ser abstrações e tornam-se **instrumentos de controle absoluto sobre o espaço tridimensional interativo**.
-
----
-
-## 🎮 Por Que Isso Importa?
-
-Em um **jogo**, nada é por acaso.
-Cada **movimento**, **colisão**, **campo de visão** e **rotação** é consequência direta de uma equação.
-
-Com Geometria Analítica, você programa:
-
-* 🎯 *Balas* que seguem inimigos com precisão vetorial.
-* 🎥 *Câmeras* orbitais suaves em 360°.
-* 🧠 *IA* que detecta jogadores por campo de visão.
-* 🌐 *Mapas modulares*, simétricos ou caóticos com lógica espacial rigorosa.
-
-> **Matemática que move pixels com propósito.**
+Este repositório é um compêndio técnico voltado para a aplicação de **Geometria Analítica** no desenvolvimento de **motores gráficos** e **jogos 3D interativos** com **Unity**. Cada conceito matemático aqui abordado possui aplicação direta na lógica espacial computacional, permitindo o domínio total sobre posições, trajetórias, colisões e rotações em ambientes tridimensionais.
 
 ---
 
-## ✍️ Fundamentos Teóricos com Código Prático
+## 🎮 Relevância Estratégica
+
+Em jogos, nada é aleatório — tudo é vetorado, rotacionado e interpolado.
+
+A Geometria Analítica fornece as ferramentas matemáticas que tornam possível:
+
+* 🎯 *Projéteis guiados* com precisão vetorial;
+* 🎥 *Câmeras orbitais* suaves e responsivas;
+* 🧠 *Sistemas de IA* com campo de visão tático;
+* 🧱 *Mapas modulares* com simetria, aleatoriedade e controle espacial rigoroso;
+* 🌀 *Rotações suaves* sem perda de eixo (quaternions);
+* 🔍 *Colisões e detecções* baseadas em equações exatas.
+
+> **Transforme o cálculo vetorial em mecânicas de jogo com propósito.**
+
+---
+
+## ✍️ Fundamentos Teóricos + Implementações Técnicas
+
+Cada seção abaixo traduz um conceito matemático em lógica operacional de game engine. As fórmulas são acompanhadas de código funcional em C# para uso imediato na Unity.
 
 ### 📏 1. Distância entre dois pontos (2D e 3D)
 
-**Aplicação:** Proximidade, colisão, alcance.
+**Uso:** Proximidade entre entidades, verificação de colisão, raio de alcance.
 
 **Fórmulas:**
 2D: $d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$
@@ -40,9 +42,11 @@ float DistanciaEntrePontos(Vector3 a, Vector3 b)
 }
 ```
 
-### 🗺️ 2. Equação da reta (paramétrica)
+---
 
-**Aplicação:** Trajetórias, movimentações, projéteis.
+### 🧭 2. Equação Paramétrica da Reta
+
+**Uso:** Definição de trajetórias lineares, lasers, movimentos contínuos.
 
 **Fórmula:** $\vec{r}(t) = \vec{P}_0 + t \cdot \vec{v}$
 
@@ -53,9 +57,11 @@ Vector3 RetaParametrica(Vector3 pontoInicial, Vector3 direcao, float t)
 }
 ```
 
-### ♻️ 3. Produto Escalar (Dot Product)
+---
 
-**Aplicação:** Visão, alinhamento, ângulos de ataque, FOV.
+### 🔄 3. Produto Escalar (Dot Product)
+
+**Uso:** Cálculo de ângulos, verificação de alinhamento, campo de visão.
 
 **Fórmula:** $\vec{a} \cdot \vec{b} = |\vec{a}| \cdot |\vec{b}| \cdot \cos(\theta)$
 
@@ -66,9 +72,13 @@ float ProdutoEscalar(Vector3 a, Vector3 b)
 }
 ```
 
+> Se o resultado for próximo de 1, os vetores estão alinhados. Se for 0, são ortogonais.
+
+---
+
 ### ✖️ 4. Produto Vetorial (Cross Product)
 
-**Aplicação:** Normais, torque, rotações ortogonais.
+**Uso:** Cálculo de vetores normais a superfícies, torques e eixos de rotação.
 
 ```csharp
 Vector3 ProdutoVetorial(Vector3 a, Vector3 b)
@@ -77,11 +87,15 @@ Vector3 ProdutoVetorial(Vector3 a, Vector3 b)
 }
 ```
 
-### 🗒️ 5. Equação do Plano
+> Essencial para física vetorial e sombreamento em 3D.
+
+---
+
+### 🧾 5. Equação do Plano
 
 **Fórmula:** $Ax + By + Cz + D = 0$
 
-**Uso:** Superfícies planas, colisão com paredes, limites.
+**Uso:** Criação de superfícies planas, detecção de impacto contra paredes, triggers invisíveis.
 
 ```csharp
 bool PontoNoPlano(Vector3 ponto, float A, float B, float C, float D)
@@ -91,11 +105,13 @@ bool PontoNoPlano(Vector3 ponto, float A, float B, float C, float D)
 }
 ```
 
-### 🌀 6. Circunferência (2D)
+---
+
+### 🌐 6. Circunferência (2D)
 
 **Fórmula:** $(x - a)^2 + (y - b)^2 = r^2$
 
-**Uso:** Zonas de ação, detecção radial, efeitos.
+**Uso:** Zonas de ação, radares circulares, magias em área.
 
 ```csharp
 bool PontoDentroDeCircunferencia(Vector2 ponto, Vector2 centro, float raio)
@@ -104,11 +120,13 @@ bool PontoDentroDeCircunferencia(Vector2 ponto, Vector2 centro, float raio)
 }
 ```
 
-### 🎈 7. Rotação 2D com Números Complexos
+---
+
+### ♻️ 7. Rotação 2D com Números Complexos
 
 **Fórmula:** $z' = z \cdot (\cos \theta + i \sin \theta)$
 
-**Uso:** Rotações leves e precisas em 2D.
+**Uso:** Rotações de sprites, movimento circular, economia computacional.
 
 ```csharp
 Vector2 Rotacionar2D(Vector2 ponto, float anguloGraus)
@@ -123,9 +141,11 @@ Vector2 Rotacionar2D(Vector2 ponto, float anguloGraus)
 }
 ```
 
+---
+
 ### 🌀 8. Slerp com Quaternions
 
-**Uso:** Rotações suaves sem gimbal lock (câmeras, naves, drones).
+**Uso:** Interpolação esférica de rotações. Evita Gimbal Lock e preserva orientações suaves.
 
 ```csharp
 Quaternion RotacaoSuave(Quaternion inicio, Quaternion fim, float t)
@@ -134,11 +154,14 @@ Quaternion RotacaoSuave(Quaternion inicio, Quaternion fim, float t)
 }
 ```
 
+> Essencial para câmeras orbitais, drones, e entidades voadoras com controle realista.
+
 ---
 
-## 🎯 Conclusão
+## 🧠 Conclusão Executiva
 
-**Geometria Analítica não é apenas equação: é engenharia espacial.**
-Compreender e aplicar esses conceitos é essencial para qualquer desenvolvedor que almeje criar jogos com **mecânicas coerentes**, **movimentos realistas** e **mundos digitais imersivos**.
+**Geometria Analítica é infraestrutura invisível de qualquer engine de sucesso.**
 
-> Dominando a matemática, você domina o espaço.
+Compreender vetores, planos e quaternions não é apenas requisito acadêmico — é uma vantagem técnica competitiva. Este repositório existe para que desenvolvedores possam sair do empirismo visual e entrar no controle matemático rigoroso do espaço interativo.
+
+> **Domine o espaço. Projete com precisão. Programe com propósito.**
