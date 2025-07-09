@@ -1,39 +1,38 @@
+
 # 🧠 Geometria Analítica Aplicada a Engines e Jogos Imersivos
 
-> **Matemática de precisão, mundos de impacto.**
+> Matemática de precisão, mundos de impacto.
 
-Este repositório é um compêndio técnico voltado para a aplicação de **Geometria Analítica** no desenvolvimento de **motores gráficos** e **jogos 3D interativos** com **Unity**. Cada conceito matemático aqui abordado possui aplicação direta na lógica espacial computacional, permitindo o domínio total sobre posições, trajetórias, colisões e rotações em ambientes tridimensionais.
+Este repositório aplica conceitos de **Geometria Analítica** no desenvolvimento de **motores gráficos** e **jogos 3D interativos** com Unity. Cada conceito possui aplicação direta na lógica computacional espacial: posições, colisões, trajetórias e rotações com total controle.
 
 ---
 
 ## 🎮 Relevância Estratégica
 
-Em jogos, nada é aleatório — tudo é vetorado, rotacionado e interpolado.
+Nada em um jogo é aleatório — tudo é vetorizado, rotacionado e interpolado.
 
-A Geometria Analítica fornece as ferramentas matemáticas que tornam possível:
+Com Geometria Analítica, você desenvolve:
 
-* 🎯 *Projéteis guiados* com precisão vetorial;
-* 🎥 *Câmeras orbitais* suaves e responsivas;
-* 🧠 *Sistemas de IA* com campo de visão tático;
-* 🧱 *Mapas modulares* com simetria, aleatoriedade e controle espacial rigoroso;
-* 🌀 *Rotações suaves* sem perda de eixo (quaternions);
-* 🔍 *Colisões e detecções* baseadas em equações exatas.
-
-> **Transforme o cálculo vetorial em mecânicas de jogo com propósito.**
+- 🎯 Projéteis guiados com precisão vetorial;
+- 🎥 Câmeras orbitais suaves e dinâmicas;
+- 🧠 IA com detecção de campo de visão;
+- 🧱 Mundos modulares, simétricos ou caóticos;
+- 🌀 Rotações suaves com quaternions;
+- 🔍 Colisões baseadas em fórmulas reais.
 
 ---
 
-## ✍️ Fundamentos Teóricos + Implementações Técnicas
+## ✍️ Conceitos Matemáticos + Códigos Unity
 
-Cada seção abaixo traduz um conceito matemático em lógica operacional de game engine. As fórmulas são acompanhadas de código funcional em C# para uso imediato na Unity.
+Cada item apresenta teoria + implementação prática em C#.
 
-### 📏 1. Distância entre dois pontos (2D e 3D)
+### 📏 1. Distância entre dois pontos
 
-**Uso:** Proximidade entre entidades, verificação de colisão, raio de alcance.
+**2D:**  
+d = raiz de [(x2 - x1)² + (y2 - y1)²]
 
-**Fórmulas:**
-2D: $d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$
-3D: $d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2}$
+**3D:**  
+d = raiz de [(x2 - x1)² + (y2 - y1)² + (z2 - z1)²]
 
 ```csharp
 float DistanciaEntrePontos(Vector3 a, Vector3 b)
@@ -44,11 +43,10 @@ float DistanciaEntrePontos(Vector3 a, Vector3 b)
 
 ---
 
-### 🧭 2. Equação Paramétrica da Reta
+### 🧭 2. Equação da reta (paramétrica)
 
-**Uso:** Definição de trajetórias lineares, lasers, movimentos contínuos.
-
-**Fórmula:** $\vec{r}(t) = \vec{P}_0 + t \cdot \vec{v}$
+**Fórmula:**  
+P(t) = ponto_inicial + t * direção
 
 ```csharp
 Vector3 RetaParametrica(Vector3 pontoInicial, Vector3 direcao, float t)
@@ -61,9 +59,8 @@ Vector3 RetaParametrica(Vector3 pontoInicial, Vector3 direcao, float t)
 
 ### 🔄 3. Produto Escalar (Dot Product)
 
-**Uso:** Cálculo de ângulos, verificação de alinhamento, campo de visão.
-
-**Fórmula:** $\vec{a} \cdot \vec{b} = |\vec{a}| \cdot |\vec{b}| \cdot \cos(\theta)$
+**Fórmula:**  
+a · b = |a| * |b| * cos(θ)
 
 ```csharp
 float ProdutoEscalar(Vector3 a, Vector3 b)
@@ -72,13 +69,9 @@ float ProdutoEscalar(Vector3 a, Vector3 b)
 }
 ```
 
-> Se o resultado for próximo de 1, os vetores estão alinhados. Se for 0, são ortogonais.
-
 ---
 
 ### ✖️ 4. Produto Vetorial (Cross Product)
-
-**Uso:** Cálculo de vetores normais a superfícies, torques e eixos de rotação.
 
 ```csharp
 Vector3 ProdutoVetorial(Vector3 a, Vector3 b)
@@ -87,15 +80,12 @@ Vector3 ProdutoVetorial(Vector3 a, Vector3 b)
 }
 ```
 
-> Essencial para física vetorial e sombreamento em 3D.
-
 ---
 
-### 🧾 5. Equação do Plano
+### 🧾 5. Equação do plano
 
-**Fórmula:** $Ax + By + Cz + D = 0$
-
-**Uso:** Criação de superfícies planas, detecção de impacto contra paredes, triggers invisíveis.
+**Fórmula:**  
+Ax + By + Cz + D = 0
 
 ```csharp
 bool PontoNoPlano(Vector3 ponto, float A, float B, float C, float D)
@@ -109,9 +99,8 @@ bool PontoNoPlano(Vector3 ponto, float A, float B, float C, float D)
 
 ### 🌐 6. Circunferência (2D)
 
-**Fórmula:** $(x - a)^2 + (y - b)^2 = r^2$
-
-**Uso:** Zonas de ação, radares circulares, magias em área.
+**Fórmula:**  
+(x - a)² + (y - b)² = r²
 
 ```csharp
 bool PontoDentroDeCircunferencia(Vector2 ponto, Vector2 centro, float raio)
@@ -124,9 +113,8 @@ bool PontoDentroDeCircunferencia(Vector2 ponto, Vector2 centro, float raio)
 
 ### ♻️ 7. Rotação 2D com Números Complexos
 
-**Fórmula:** $z' = z \cdot (\cos \theta + i \sin \theta)$
-
-**Uso:** Rotações de sprites, movimento circular, economia computacional.
+**Fórmula:**  
+z' = z * (cos(θ) + i * sen(θ))
 
 ```csharp
 Vector2 Rotacionar2D(Vector2 ponto, float anguloGraus)
@@ -145,8 +133,6 @@ Vector2 Rotacionar2D(Vector2 ponto, float anguloGraus)
 
 ### 🌀 8. Slerp com Quaternions
 
-**Uso:** Interpolação esférica de rotações. Evita Gimbal Lock e preserva orientações suaves.
-
 ```csharp
 Quaternion RotacaoSuave(Quaternion inicio, Quaternion fim, float t)
 {
@@ -154,14 +140,12 @@ Quaternion RotacaoSuave(Quaternion inicio, Quaternion fim, float t)
 }
 ```
 
-> Essencial para câmeras orbitais, drones, e entidades voadoras com controle realista.
-
 ---
 
-## 🧠 Conclusão Executiva
+## 🧠 Conclusão
 
-**Geometria Analítica é infraestrutura invisível de qualquer engine de sucesso.**
+Geometria Analítica é o motor invisível por trás de qualquer engine sofisticada.
 
-Compreender vetores, planos e quaternions não é apenas requisito acadêmico — é uma vantagem técnica competitiva. Este repositório existe para que desenvolvedores possam sair do empirismo visual e entrar no controle matemático rigoroso do espaço interativo.
+Dominar vetores, planos e quaternions transforma ideias em realidade digital — com realismo, precisão e desempenho.
 
-> **Domine o espaço. Projete com precisão. Programe com propósito.**
+> Domine o espaço. Projete com precisão. Programe com propósito.
